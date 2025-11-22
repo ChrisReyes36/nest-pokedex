@@ -17,7 +17,11 @@ yarn install
 npm i -g @nestjs/cli
 ```
 
-4. Compilar y correr el proyecto
+4. Clonar el archivo ```.env.example``` y renombrar la copia a __.env__
+
+5. Llenar las variables de entorno definidas en el ```.env```
+
+6. Compilar y correr el proyecto
 
 ```bash
 # desarrollo
@@ -30,13 +34,13 @@ yarn run start:dev
 yarn run start:prod
 ```
 
-5. Levantar la base de datos
+7. Levantar la base de datos
 
 ```bash
 docker compose up -d
 ```
 
-6. Reconstruir la base de datos con la semilla
+8. Reconstruir la base de datos con la semilla
 
 ```bash
 http://localhost:3000/api/v2/seed
@@ -46,3 +50,11 @@ http://localhost:3000/api/v2/seed
 
 * MongoDB
 * Nest
+
+# Production Build
+1. Crear el archivo ```.env.prod```
+2. Llenar las variables de entorno de prod
+3. Crear la nueva imagen
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
